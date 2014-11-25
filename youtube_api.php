@@ -8,6 +8,8 @@
     $yesterdaysDate = date('m-d-Y',strtotime("-1 days"));
 	echo $yesterdaysDate;
     $arrTwo = $arrOne['entry']['yt$statistics']['subscriberCount'];
+    	echo "<br />\n";
+    	echo "Subscriber Count: ";
         echo $arrTwo;
 
     // print_r($arrOne);
