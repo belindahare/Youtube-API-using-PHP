@@ -8,7 +8,7 @@
     $arrTwo = $arrOne['entry']['yt$statistics']['subscriberCount'];
         echo $arrTwo;
 
-    // print_r($arr);
+    // print_r($arrOne);
 
     // foreach($arrOne as $key => $value){
     //     echo "Key: $key ";
