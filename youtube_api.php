@@ -5,6 +5,8 @@
     // $url = 'http://gdata.youtube.com/feeds/api/users/violetdailypill?v=2&alt=json';
     $string = file_get_contents($url);
     $arrOne = json_decode($string, true);
+    $yesterdaysDate = date('m-d-Y',strtotime("-1 days"));
+	echo $yesterdaysDate;
     $arrTwo = $arrOne['entry']['yt$statistics']['subscriberCount'];
         echo $arrTwo;
 
