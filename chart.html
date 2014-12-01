@@ -1,0 +1,39 @@
+<html>
+	<head>
+		<script type="text/javascript" src="//www.google.com/jsapi"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+		<script type="text/javascript">
+		google.load("visualization", "1", {packages:["corechart"]});
+		google.setOnLoadCallback(drawChart);
+		chartData = '';
+		// .get is same concept as file_get_contents in php-we have chartData set equal to an empty string so that it will reset to 0 for an accurate number when it is set equal to the response function later  .success is called once the server responds a 200 ok status, next the response function is initialized and chartData is set = to the response of the trended key.
+		$.get('chart/data/sitecat.json').success(function(response){
+			chartData = response['trended'];
+		});
+		// This code is given to us by google's chart api, we just gave it our data using the variable chartData.
+		function drawChart(){
+			var data = google.visualization.arrayToDataTable(chartData
+				);
+			var options = {
+				// title: 'Trended Visits'
+				// hAxis: {title: 'Trended Visits', titleTextStyle: {color: rgb(225,225,225)}, titleBackground: {background:(136,71,168)}
+				// is_Stacked: true,
+
+
+				width: 600,
+        		height: 400,
+        		legend: { position: 'top', maxLines: 3 },
+        		// bar: { groupWidth: '75%';background:rgb(136,71,168); },
+        		isStacked: true,
+			};
+			// also given to us by google, sets a variable chart which we will call in the next line.  We need the div in the body of the document so that it knows where to draw/display the chart
+			var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+			chart.draw(data, options);
+		}
+		</script>
+</head>
+<body>
+	<div id="chart_div" style="width: 900px; height: 500px;"></div>
+
+</body>
+</html>
