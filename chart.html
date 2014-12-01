@@ -15,15 +15,12 @@
 			var data = google.visualization.arrayToDataTable(chartData
 				);
 			var options = {
-				// title: 'Trended Visits'
-				// hAxis: {title: 'Trended Visits', titleTextStyle: {color: rgb(225,225,225)}, titleBackground: {background:(136,71,168)}
-				// is_Stacked: true,
-
-
+				title: 'Trended Visits (30 Days)', 
 				width: 600,
-        		height: 400,
-        		legend: { position: 'top', maxLines: 3 },
-        		// bar: { groupWidth: '75%';background:rgb(136,71,168); },
+        		height: 300,
+        		legend: { position: 'bottom', maxLines: 3 },
+        		bar: { groupWidth: '80%'},
+        		colors: ['#552971', '#c3a1c8'],
         		isStacked: true,
 			};
 			// also given to us by google, sets a variable chart which we will call in the next line.  We need the div in the body of the document so that it knows where to draw/display the chart
