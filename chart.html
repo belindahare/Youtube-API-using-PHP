@@ -15,14 +15,30 @@
 			var data = google.visualization.arrayToDataTable(chartData
 				);
 			var options = {
-				title: 'Trended Visits (30 Days)', 
+            	title: 'Trended Visits (30 Days)',
+            	titleTextStyle: {
+            		// color: #ffffff,
+            		fontName: "Arial",
+            		
+            		fontSize: "20",
+
+            	},
 				width: 600,
         		height: 300,
         		legend: { position: 'bottom', maxLines: 3 },
         		bar: { groupWidth: '80%'},
         		colors: ['#552971', '#c3a1c8'],
         		isStacked: true,
-			};
+        		vAxis: {
+    				gridlines: {
+        			color: 'transparent'}
+        		},
+    			hAxis: {
+    				gridlines: {
+        			color: 'transparent'}
+        		}
+	        };
+			
 			// also given to us by google, sets a variable chart which we will call in the next line.  We need the div in the body of the document so that it knows where to draw/display the chart
 			var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
 			chart.draw(data, options);
